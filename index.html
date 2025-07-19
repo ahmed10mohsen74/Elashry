@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al_ashry</title>
+    <link rel="icon" type="image/png" href="src/img/app-icon-512.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="src/style.css">
+</head>
+
+<body>
+    <section class="home">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <img src="src/img/elashry-removebg-preview.png" alt="Elashry Logo">
+                </div>
+
+                <button class="menu-btn" id="menuBtn">☰</button>
+
+                <div class="nav-links" id="navLinks">
+                    <a href="#">الرئيسية</a>
+                    <a href="#">من نحن</a>
+                    <a href="#">الخدمات</a>
+                    <a href="#">أسئلة شائعة</a>
+                    <a href="#">اتصل بنا</a>
+                    <div class="register">
+                        <a href="login.html">تسجيل الدخول</a>
+                        <a href="login.html">إنشاء حساب</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="data">
+                <p>افضل طريقه</p>
+                <h2>لتجد منزل احلامك</h2>
+                <span>لدينا أكثر من 745,000 شقة ومكان وقطعة أرض.
+                </span>
+            </div>
+        </div>
+        <div class="flow-search">
+            <form class="search-form" action="">
+                <div class="search-place">
+                    <input type="text" placeholder="ابحث عن شقة" id="search-filter">
+                    <div class="suggestions" id="suggestions">
+                        <label data-city="القاهرة">القاهرة</label>
+                        <label data-city="الجيزة">الجيزة</label>
+                        <label data-city="الإسكندرية">الإسكندرية</label>
+                        <label data-city="الدقهلية">الدقهلية</label>
+                        <label data-city="البحر الأحمر">البحر الأحمر</label>
+                        <label data-city="البحيرة">البحيرة</label>
+                        <label data-city="الفيوم">الفيوم</label>
+                        <label data-city="الغربية">الغربية</label>
+                        <label data-city="الإسماعيلية">الإسماعيلية</label>
+                        <label data-city="المنوفية">المنوفية</label>
+                        <label data-city="المنيا">المنيا</label>
+                        <label data-city="القليوبية">القليوبية</label>
+                        <label data-city="الوادي الجديد">الوادي الجديد</label>
+                        <label data-city="السويس">السويس</label>
+                        <label data-city="أسوان">أسوان</label>
+                        <label data-city="أسيوط">أسيوط</label>
+                        <label data-city="بني سويف">بني سويف</label>
+                        <label data-city="بورسعيد">بورسعيد</label>
+                        <label data-city="دمياط">دمياط</label>
+                        <label data-city="الشرقية">الشرقية</label>
+                        <label data-city="جنوب سيناء">جنوب سيناء</label>
+                        <label data-city="كفر الشيخ">كفر الشيخ</label>
+                        <label data-city="مطروح">مطروح</label>
+                        <label data-city="الأقصر">الأقصر</label>
+                        <label data-city="قنا">قنا</label>
+                        <label data-city="شمال سيناء">شمال سيناء</label>
+                        <label data-city="سوهاج">سوهاج</label>
+                    </div>
+
+                </div>
+
+                <input type="date" id="date-from" placeholder="من التاريخ">
+                <input type="date" id="date-to" placeholder="إلى التاريخ">
+                <button type="submit">ابحث</button>
+            </form>
+
+        </div>
+
+    </section>
+    <section class="cards">
+        <div class="containerr">
+            <div class="head">
+                <div class="heading">
+                    <h2>احدث العقارات</h2>
+                    <p>لدينا اكثر من 745,000 شقة ومكان وقطعة ارض</p>
+                </div>
+                <div class="filter">
+                    <a class="active" data-type="منزل" href="#">منزل</a>
+                    <a data-type="فيلا" href="#">فيلا</a>
+                    <a data-type="مكتب" href="#">مكتب</a>
+                    <a data-type="ارض" href="#">ارض</a>
+                </div>
+            </div>
+
+            <div class="cards" id="cards-container"></div>
+        </div>
+    </section>
+    <section class="services">
+        <div class="containerr">
+            <div class="heading">
+                <h2>شاهد كيف يمكن للوكيل العقاري المساعدة
+                </h2>
+                <p>لدينا اكثر من 745,000 شقة ومكان وقطعة ارض</p>
+            </div>
+            <div class="services-container">
+                <div class="cards">
+                    <div class="service">
+
+                        <i class="fa-solid fa-house"></i>
+                        <div class="info">
+                            <h4>بيع</h4>
+                            <p>لدينا اكثر من 745,000 شقة ومكان وقطعة ارض</p>
+                        </div>
+                        <button>ابحث عن منزلك <i class="fa-solid fa-arrows-turn-right"></i></button>
+                    </div>
+                    <div class="service active">
+
+                        <i class="fa-solid fa-house-lock"></i>
+                        <div class="info">
+                            <h4>تاجير</h4>
+                            <p>لدينا اكثر من 745,000 شقة ومكان وقطعة ارض</p>
+                        </div>
+                        <button class="active">ابحث عن منزلك <i class="fa-solid fa-arrows-turn-to-dots"></i></button>
+                    </div>
+                    <div class="service">
+                        <i class="fa-solid fa-house-laptop"></i>
+                        <div class="info">
+                            <h4>شراء</h4>
+                            <p>لدينا اكثر من 745,000 شقة ومكان وقطعة ارض</p>
+                        </div>
+
+                        <button>ابحث عن منزلك <i class="fa-solid fa-arrow-up-from-bracket"></i></button>
+                    </div>
+                </div>
+    </section>
+    <section class="footer">
+        <div class="containerr">
+            <div class="box">
+                <img src="src/img/elashry-removebg-preview.png" alt="Elashry Logo">
+                <p>لدينا اكثر من 745,000 شقة ومكان وقطعة ارض</p>
+            </div>
+            <div class="box">
+                <h3>روابط سريعة</h3>
+                <a href="#">الرئيسية</a>
+                <a href="#">من نحن</a>
+                <a href="#">الخدمات</a>
+                <a href="#">اغلق</a>
+            </div>
+            <div class="box">
+                <h3>اتصل بنا</h3>
+                <p>لدينا اكثر من 745,000 شقة ومكان وقطعة ارض</p>
+                <p>لدينا اكثر من 745,000 شقة ومكان وقطعة ارض</p>
+                <p>لدينا اكثر من 745,000 شقة ومكان وقطعة ارض</p>
+            </div>
+
+        </div>
+        <div class="bottom-bar">
+            © 2025 Elashry. جميع الحقوق محفوظة.
+        </div>
+
+    </section>
+
+    <script src="src/script.js"></script>
+</body>
+
+</html>

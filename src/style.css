@@ -1,0 +1,620 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(45deg, #ffffff, #f0b6b4);
+}
+
+.containerr {
+    width: clamp(300px, 90%, 1200px);
+    margin: auto;
+}
+
+.home {
+    position: relative;
+    min-height: 80vh;
+    background: url('../src/img/home background.jpg') center center / cover no-repeat;
+    z-index: 1;
+    overflow: hidden;
+}
+
+
+.home::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    /* تعتيم */
+    backdrop-filter: blur(4px);
+    /* البلور */
+    z-index: 2;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 39vh;
+}
+
+/* محتوى الصفحة فوق التأثير */
+.home>* {
+    position: relative;
+    z-index: 3;
+    color: #fff;
+    text-align: center;
+}
+
+.nav {
+    background: linear-gradient(45deg, #ffffff, hsl(0, 0%, 100%));
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1000;
+}
+
+.logo img {
+    width: 50px;
+    height: auto;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #007bff;
+}
+
+.register {
+    display: flex;
+    gap: 10px;
+}
+
+.register a {
+    background-color: #EB6753;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.register a:hover {
+    background-color: #83392e;
+    color: white;
+}
+
+/* -------- Responsive -------- */
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: #fff;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        gap: 15px;
+
+        /* Animation */
+        opacity: 0;
+        transform: translateY(-20px);
+        pointer-events: none;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links.active {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .register {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .register a {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.home .data h2 {
+    margin: 12px 0 12px;
+    font-size: 2.5rem;
+}
+
+.search-form {
+    bottom: -17rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: auto;
+    direction: rtl;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.search-form input,
+.search-form button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    min-width: 160px;
+    transition: 0.3s;
+}
+
+.search-form input:focus {
+    border-color: #007bff;
+}
+
+.search-form button {
+    background-color: #EB6753;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background-color: #83392e;
+}
+
+.search-place {
+    position: relative;
+    max-width: 400px;
+    margin: auto;
+    direction: rtl;
+}
+
+.search-place input {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+}
+
+.suggestions {
+    display: none;
+    /* مخفية */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    z-index: 100;
+    max-height: 100px;
+    overflow-y: auto;
+
+}
+
+.suggestions label {
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    color: #000000;
+}
+
+.suggestions label:hover {
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .search-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-form input,
+    .search-form button {
+        width: 100%;
+    }
+}
+
+.cards {
+    position: relative;
+    margin-top: 50px;
+}
+
+/* الحاوية العامة */
+.cards .containerr {
+    width: clamp(300px, 90%, 1200px);
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* رأس القسم */
+.cards .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+/* العنوان */
+.cards .heading h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #111;
+    margin: 0;
+}
+
+.cards .heading p {
+    font-size: 1rem;
+    color: #6c6c6c;
+    margin-top: 8px;
+}
+
+/* الفلاتر */
+.cards .filter {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.cards .filter a {
+    padding: 8px 16px;
+    background-color: #f1f1f1;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 0.95rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.cards .filter a:hover {
+    background-color: #0d6efd;
+    color: white;
+}
+
+.cards .filter a.active {
+    background-color: #0d6efd;
+    color: white;
+}
+
+/* للموبايل */
+@media (max-width: 600px) {
+    .cards .head {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cards .heading h2 {
+        font-size: 1.5rem;
+    }
+
+    .cards .heading p {
+        font-size: 0.9rem;
+    }
+
+    .cards .filter {
+        justify-content: flex-start;
+    }
+}
+.cards .filter {
+    display: flex;
+    gap: 10px;
+}
+
+.cards .filter a {
+    text-decoration: none;
+    border: 1px solid #EB6753;
+    border-radius: 7px;
+    padding: 5px 10px;
+    color: #007bff;
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.cards .filter a:hover {
+    background-color: #EB6753;
+    color: #ffffff;
+}
+
+.cards .filter a.active {
+    background-color: #EB6753;
+    color: #ffffff;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 40px 20px;
+    direction: rtl;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-info {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.card-title h3,
+.card-price h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #222;
+}
+
+.card-title h4,
+.card-price h4 {
+    margin: 4px 0 0;
+    font-size: 14px;
+    color: #777;
+}
+
+.card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* الكارت أول ما يتحط فيه الكلاس */
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.services {
+    margin-top: 50px;
+    background-color: rgba(235, 103, 83, 0.1);
+    padding: 30px 0;
+
+}
+
+.services .heading {
+
+    text-align: center;
+}
+
+.services .heading h2 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.services .heading p {
+    font-size: 1rem;
+    color: #6c6c6c;
+}
+
+.services .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 40px 20px;
+    direction: rtl;
+}
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    padding: 40px 20px;
+    direction: rtl;
+}
+
+.service {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    padding: 24px 16px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.service:hover , .service.active {
+    transform: translateY(-12px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service i {
+    font-size: 40px;
+    color: rgba(24, 26, 32, 1);
+    margin-bottom: 16px;
+}
+
+.service .info h4 {
+    font-size: 20px;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.service .info p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    margin: 0 auto 16px;
+}
+
+.service button {
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+        border: 1px solid;
+    transition: background 0.3s;
+}
+.service button i{
+    font-size: 14px;
+    color: #EB6753;
+}
+
+
+.service button:hover , .service button.active , .service button:hover i , .service button.active i{
+    background-color:#EB6753;
+    color: white;
+
+}
+
+/* Responsive تحسين */
+@media (max-width: 500px) {
+    .service {
+        padding: 20px 12px;
+    }
+
+    .service i {
+        font-size: 34px;
+    }
+
+    .service .info h4 {
+        font-size: 18px;
+    }
+
+    .service .info p {
+        font-size: 13px;
+    }
+}
+.footer {
+    background-color: #1a1a1a;
+    color: #f1f1f1;
+    padding: 60px 20px 40px;
+    direction: rtl;
+}
+
+.footer .containerr {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 32px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer .box {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer .box img {
+    width: 150px;
+    height: auto;
+}
+
+.footer .box h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #EB6753;
+    position: relative;
+}
+
+.footer .box p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #ccc;
+    margin: 0;
+}
+
+.footer .box a {
+    text-decoration: none;
+    color: #ccc;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer .box a:hover {
+    color: #EB6753;
+}
+
+/* خط سفلي */
+.footer .bottom-bar {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    font-size: 13px;
+    color: #999;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .footer {
+        text-align: center;
+    }
+
+    .footer .box {
+        align-items: center;
+    }
+
+    .footer .box img {
+        margin-bottom: 10px;
+    }
+}
