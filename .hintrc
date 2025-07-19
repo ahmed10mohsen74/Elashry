@@ -16,6 +16,8 @@
           "backdrop-filter"
         ]
       }
-    ]
+    ],
+    "button-type": "off",
+    "disown-opener": "off"
   }
 }

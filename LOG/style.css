@@ -18,10 +18,12 @@ body {
 h1 {
     font-weight: bold;
     margin: 0;
+    
 }
 
 h2 {
     text-align: center;
+    color: #EB6753;
 }
 
 p {
@@ -227,7 +229,10 @@ input {
     height: 40px;
     width: 40px;
 }
-
+img{
+    width: 100px;
+    height: 100px;
+}
 footer {
     background-color: #222;
     color: #fff;
